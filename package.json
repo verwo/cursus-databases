@@ -1,0 +1,27 @@
+{
+  "name": "cursus-databases",
+  "version": "1.0.0",
+  "description": "Cursus over databases in mysql",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verwo/cursus-databases.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/verwo/cursus-databases/issues"
+  },
+  "homepage": "https://github.com/verwo/cursus-databases#readme",
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.19",
+    "@vuepress/theme-default": "^2.0.0-rc.73",
+    "sass-embedded": "^1.83.4",
+    "vuepress": "^2.0.0-rc.19"
+  }
+}
