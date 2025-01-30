@@ -1,65 +1,68 @@
+---
+title: Software
+---
+
 # Software
 
 ## XAMPP
 
-XAMPP is a software package that bundles different software tools for webdeveloment into a single application.
+XAMPP is een softwarepakket dat verschillende tools voor webontwikkeling bundelt in één applicatie.
 
-XAMPP stands for:
+XAMPP staat voor:
 
-* **X**: works on any operating system \(Windows, Linux and OSX\)
-* **A**: Apache HTTP server
-* **M**: MariaDB Database Management System \(~ MySQL\)
-* **P**: PHP programming language
-* **P**: Perl programming language
+* **X**: Werkt op elk besturingssysteem (Windows, Linux en macOS)
+* **A**: Apache HTTP-server
+* **M**: MariaDB Database Management System (~ MySQL)
+* **P**: PHP programmeertaal
+* **P**: Perl programmeertaal
 
-XAMPP can be download for free on the website of Apachefriends: [https://www.apachefriends.org](https://www.apachefriends.org)
+XAMPP kan gratis worden gedownload via de website van Apachefriends: [https://www.apachefriends.org](https://www.apachefriends.org)
 
-[Installation guide](https://vives.gitbook.io/software-installation-guide/xampp)
+[Installatiehandleiding](https://vives.gitbook.io/software-installation-guide/xampp)
 
 ## MySQL Workbench
 
-MySQL Workbench is a set of tools that is mainly used to create and manage MySQL or MariaDB databases in a graphical interface.
+MySQL Workbench is een verzameling tools die voornamelijk wordt gebruikt om MySQL- of MariaDB-databanken te maken en beheren via een grafische interface.
 
 [https://www.mysql.com/products/workbench/](https://www.mysql.com/products/workbench/)
 
 ## SQLite Browser
 
-SQLite Browser is a graphical user interface to create and manage SQLite databases.
+SQLite Browser is een grafische gebruikersinterface om SQLite-databanken te maken en beheren.
 
 [http://sqlitebrowser.org/](http://sqlitebrowser.org/)
 
 ## Lucid Chart
 
-Lucid Chart is an online tool to create diagrams and charts for software projects. Create an free account with your VIVES email address. Then request a free educational upgrade for you account at [https://www.lucidchart.com/pages/usecase/education](https://www.lucidchart.com/pages/usecase/education)
+Lucid Chart is een online tool voor het maken van diagrammen en schema's voor softwareprojecten. Maak een gratis account aan met je VIVES e-mailadres en vraag vervolgens een gratis educatieve upgrade aan op [https://www.lucidchart.com/pages/usecase/education](https://www.lucidchart.com/pages/usecase/education)
 
 [https://www.lucidchart.com/](https://www.lucidchart.com/)
 
 ### GIT
 
-For source code management we will use GIT. Download and install GIT from the official GIT website.
+Voor versiebeheer en broncodebeheer gebruiken we GIT. Download en installeer GIT via de officiële GIT-website.
 
-::: tip Installation settings
-
-Use default settings in the installation wizard, except the "Adjust your PATH environment" settings MUST be set using the third option "Use Git and optional Unix tools from the Windows Command Prompt"
+::: tip Installatie-instellingen
+Gebruik de standaardinstellingen in de installatiewizard, behalve bij "Adjust your PATH environment settings". Dit MOET worden ingesteld op de derde optie: "Use Git and optional Unix tools from the Windows Command Prompt".
 :::
 
 [https://git-scm.com](https://git-scm.com/)
 
-[Installation guide](https://vives.gitbook.io/software-installation-guide/git/git)
+[Installatiehandleiding](https://vives.gitbook.io/software-installation-guide/git/git)
 
 ## Posh-Git
 
-PoshGit or PowerShell Git, is a tool to extend powershell with some handy features when working in a Git project. Follow the installation steps described at the webpage.
+PoshGit, of PowerShell Git, is een tool die PowerShell uitbreidt met handige functies voor het werken in een Git-project. Volg de installatie-instructies op de officiële pagina.
 
 [https://github.com/dahlbyk/posh-git](https://github.com/dahlbyk/posh-git)
 
-[Installation guide](https://vives.gitbook.io/software-installation-guide/git/poshgit)
+[Installatiehandleiding](https://vives.gitbook.io/software-installation-guide/git/poshgit)
 
 ### Visual Studio Code
 
-Visual Studio Code will be our text and code editor of choice.
+Visual Studio Code zal onze tekst- en code-editor zijn.
 
-[code.visualstudio.com/](https://code.visualstudio.com/)
+[https://code.visualstudio.com/](https://code.visualstudio.com/)
 
-[Installation guide](https://vives.gitbook.io/software-installation-guide/visual-studio-code)
+[Installatiehandleiding](https://vives.gitbook.io/software-installation-guide/visual-studio-code)
 
