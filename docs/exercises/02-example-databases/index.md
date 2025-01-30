@@ -47,20 +47,6 @@ SHOW DATABASES;
 
 Dit toont een lijst van beschikbare databases, inclusief systeemtaken zoals `mysql`, `information_schema` en `performance_schema`. Deze databases bevatten interne configuratiegegevens en mogen niet gewijzigd worden.
 
-## Problemen bij het aanmaken van de database
-
-Als je een foutmelding zoals deze krijgt:
-
-```text
-ERROR: Failed to open file 'create.sql', error: 2
-```
-
-Controleer dan of het bestand `create.sql` zich bevindt in de juiste map. Gebruik indien nodig de volledige padnaam:
-
-```sql
-SOURCE C:/Users/Username/path/to/create.sql;
-```
-
 ## De database aanmaken
 
 Maak een lege database aan met:
