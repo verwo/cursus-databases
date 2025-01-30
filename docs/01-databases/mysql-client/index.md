@@ -1,26 +1,33 @@
+---
+title: MySQL Client
+---
 
-# MySQL Client
+# Inleiding tot de MySQL Client
 
-## Connecting to the database
+## Verbinden met de databank
 
-Before we can start and connect to the DBMS, we need to start it. This can be done by starting MySQL or MariaDB using the XAMPP control panel.
+Voordat we verbinding kunnen maken met het DBMS, moeten we het starten. Dit kan worden gedaan door MySQL of MariaDB te starten via het XAMPP-configuratiescherm.
 
-One way to communicate with a DBMS is by using the _command line_. On Windows you can use `powershell`. The `mysql` command is not context or location aware, so it does not matter what the current directory is.
+Een manier om met een DBMS te communiceren is via de _command line_. Op Windows kun je hiervoor `powershell` gebruiken. Het `mysql`-commando is niet afhankelijk van de huidige map waarin je je bevindt.
 
-As we will see later on, MySQL makes use of users. By default a user `root` without password is available to use. To tell the `mysql` command that we want to log in as the user `root` we need to pass the `-u`option followed by the username.
+MySQL maakt gebruik van gebruikers. Standaard is er een `root`-gebruiker zonder wachtwoord beschikbaar. Om in te loggen als de `root`-gebruiker moet de `-u`-optie gevolgd door de gebruikersnaam worden meegegeven.
 
-To connect to the database you can use the following command:
+De opdracht om verbinding te maken met de databank is:
 
 ```bash
 mysql -u root
 ```
 
-* `mysql`: this tells your commandpromp or powerschell to start the mysql client.
-* `-u root`: the -u tells the client to log with the given name, in this case 'root'.
-* `-p`: the -p tells the client to ask for a password after you pressed enter.
-* `-h 127.0.0.1`: this tells the client to connect on ip-adress 127.0.0.1, can be used for connection on remote servers, when not specified it will use the default of localhost.
+### Uitleg van de commando-opties
 
-Running the command should show you something like this:
+- `mysql`: start de MySQL-client.
+- `-u root`: geeft aan dat je inlogt als gebruiker `root`.
+- `-p`: zorgt ervoor dat de client om een wachtwoord vraagt na het indrukken van Enter.
+- `-h 127.0.0.1`: specificeert het IP-adres van de server. Dit is handig voor externe verbindingen; als het niet wordt opgegeven, wordt standaard `localhost` gebruikt.
+
+### Verwachte uitvoer
+
+Wanneer je de opdracht uitvoert, krijg je een output zoals deze:
 
 ```
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -29,9 +36,10 @@ Server version: 10.1.9-MariaDB mariadb.org binary distribution
 
 Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
 
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+Type 'help;' or '\h' voor hulp. Type '\c' om de huidige invoer te wissen.
 
 MariaDB [(none)]>
 ```
 
-Take a look at the last line. MariaDB is the name of the database server that is installed and used by XAMPP. Between the `[ ]`is the name of the selected database, for the moment we don't have a database selected so it says `(none)`.
+Kijk naar de laatste regel. `MariaDB` is de naam van de database-server die door XAMPP wordt geïnstalleerd en gebruikt. Tussen de `[ ]` staat de naam van de geselecteerde databank. Omdat we op dit moment nog geen databank hebben geselecteerd, staat er `(none)`. 
+

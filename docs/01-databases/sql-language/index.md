@@ -1,103 +1,100 @@
-# SQL
+---
+title: SQL
+---
 
-SQL can be pronounced as:
+# Inleiding tot SQL
 
-* Letters: S-Q-L
-* Or as `sequel`
+## Wat is SQL?
 
-SQL is an acronym for Structured Query Language. It is a domain-specific language that is designed specifically for communicating with databases. A domain-specific langauge, like SQL, is designed to do one thing, and do it very well in a very specific context. SQL provides you with a simple and efficient way to read and write data from a database.
+SQL kan op de volgende manieren worden uitgesproken:
 
-SQL uses a relational database model. A relational database organizes sets of data in relation to each other. This has some advantages:
+* Als losse letters: S-Q-L
+* Of als `sequel`
 
-- These relations allow the reduce the data storage footprint and better performance.
-- It has a strong data integrity through ACID. ACID is an acronym for **A**tomicity, **C**onsistency, **I**solation, and **D**urability. 
-- SQL provides an abstraction over how the data is represented on disk.
+SQL staat voor Structured Query Language. Het is een domeinspecifieke taal die speciaal is ontworpen voor communicatie met databanken. Een domeinspecifieke taal zoals SQL is ontworpen om één taak goed uit te voeren binnen een specifieke context. SQL biedt een eenvoudige en efficiënte manier om gegevens in een databank te lezen en te schrijven.
 
-Unfortunately SQL also has some limitations:
+## Relationeel datamodel
 
-- Its data model is best carefully designed up-front. Changing a schema results in downtime.
-- SQL databases have been developed before distributed computing. It does no scale to multiple computer systems out-of-the-box. There are good examples of systems which use SQL databases in a distributed way, e.g. Facebook is built MySQL.
+SQL gebruikt een relationeel datamodel. Een relationele databank organiseert gegevens in relatie tot elkaar. Dit heeft enkele voordelen:
 
-## Standard database query language
+- De relaties verminderen de opslagruimte en verbeteren de prestaties.
+- Er is sterke gegevensintegriteit dankzij ACID (**A**tomiciteit, **C**onsistentie, **I**solatie en **D**uurzaamheid).
+- SQL biedt een abstractie van hoe de gegevens fysiek worden opgeslagen.
 
-SQL is not proprietary. It is not used by specific database vendors. Almost every major DBMS system supports SQL. This enables you to interact with just about every database you’ll run into.
+Toch heeft SQL ook enkele beperkingen:
 
-SQL is easy to learn. The statements are all made up of descriptive English words, which makes reading SQL queries quite intuitive. Despite its apparent simplicity, SQL is actually very powerful. Cleverly using its language elements, you can perform very complex and sophisticated database operations, in a very optimized way. 
+- Het datamodel moet vooraf goed worden ontworpen. Wijzigingen in een schema kunnen downtime veroorzaken.
+- SQL-databanken zijn oorspronkelijk ontwikkeld voordat gedistribueerd rekenen gebruikelijk was. Standaard werken ze niet direct op meerdere systemen, al zijn er uitzonderingen zoals Facebook's MySQL-oplossingen.
+
+## Standaard querytaal
+
+SQL is geen eigendom van een specifiek bedrijf en wordt door bijna alle grote DBMS-systemen ondersteund. Dit maakt het mogelijk om met bijna elke databank te communiceren.
+
+SQL is eenvoudig te leren. De opdrachten bestaan uit beschrijvende Engelse woorden, waardoor het intuïtief te lezen is. Ondanks de eenvoud is SQL zeer krachtig en kunnen complexe bewerkingen efficiënt worden uitgevoerd.
 
 :::tip
-If you can build a SQL query, this is preferred over fetching all data and filter or calculate the result in an application.
+Als je een SQL-query kunt bouwen, verdient dit de voorkeur boven het ophalen van alle gegevens en filteren in een applicatie.
 :::
 
-### MariaDB
+## MariaDB en MySQL
 
 ::: tip ℹ️ MySQL vs MariaDB
-MySQL is maintained by Oracle. MySQL is free to use but not entirely open source. Some parts are closed source. This was not the vision of the original developers, who felt there was a conflict of interest between MySQL and Oracle Database Server. Therefor they created a fork that replaces the closed source parts with open source alternatives. This fork is called **MariaDB**, and is guaranteed to stay open source.
+MySQL wordt beheerd door Oracle en is deels gesloten source. De oorspronkelijke ontwikkelaars vonden dit niet in lijn met hun visie en creëerden een open source fork: **MariaDB**.
 
-MariaDB and MySQL are therefor compatible. All MySQL command are compatible with MariaDB and vice versa.
+MariaDB is volledig open source en compatibel met MySQL, wat betekent dat alle MySQL-opdrachten ook in MariaDB werken.
 :::
 
-![MariaDB and MySQL logo](./img/mariadb_vs_mysql.jpg)
+![MariaDB en MySQL logo](./img/mariadb_vs_mysql.jpg)
 
-Figure 1: MariaDB and MySQL logo's.
+Figuur 1: MariaDB en MySQL logo's.
 
-MySQL has become one of the most popular database management systems in the world. It can be used for small development projects to large and prestigious sites on the web. MySQL has proven itself to be solid, reliable, fast and trusted to all sorts of data storage needs.
+MySQL en MariaDB zijn populaire DBMS-systemen. Ze worden gebruikt voor zowel kleine projecten als grote toepassingen. Door hun betrouwbaarheid en snelheid zijn ze breed geaccepteerd in webontwikkeling, vaak als onderdeel van een **LAMP**-stack (**L**inux, **A**pache, **M**ariaDB, **P**HP).
 
-MySQL and MariaDB are open source and free to use. This makes it one of the most popular databases. It is also the best supported and best documented database for web based projects. A popular *stack* is LAMP. This consists of **L**inux operating system, **A**pache webserver, **M**ariaDB database and **P**HP programming language. On Windows a management tool called XAMPP contains these elements, except for Linux of course.
-
-There are also other SQL databases, such as:
+Andere veelgebruikte SQL-databanken zijn onder andere:
 
 - PostgreSQL
-- Oracle
-- SQL Server
-- ...
+- Oracle Database
+- Microsoft SQL Server
 
 ## NoSQL
 
-SQL has been the industry standard since the late 1970's. However, in a distributed computing environment, SQL's consistency has been replaced with *eventual consistency* in favor of more speed, availability and partition tolerance, this is to distribute the database over multiple computer systems more easily. NoSQL is a term which refers to all database systems which are not SQL. More specifically, the data structures used in a NoSQL database are different from the relational model of SQL. These can be:
+Sinds de jaren ‘70 is SQL de standaard, maar in gedistribueerde systemen is SQL’s **consistentie** vervangen door **eventuele consistentie** om snelheid en beschikbaarheid te verbeteren. **NoSQL** verwijst naar databanken die geen relationeel model hanteren, zoals:
 
-- key-value, e.g. Dynamo
-- wide column, e.g. Cassandra
-- graph, e.g. Neo4J
-- document, e.g. MongoDB
-- time series, e.g. InfluxDB
+- **Key-Value Stores**: DynamoDB
+- **Wide Column Stores**: Cassandra
+- **Graph Databases**: Neo4J
+- **Document Databases**: MongoDB
+- **Time Series Databases**: InfluxDB
 
-::: tip ℹ️ Most popular databases
-There is a ranking of [most popular databases](https://db-engines.com/en/ranking). Just keep in mind that most popular does not always mean the best.
+::: tip ℹ️ Populaire databanken
+Een overzicht van de [meest populaire databanken](https://db-engines.com/en/ranking).
 :::
 
-In this course we are only going to study SQL databases and more specifically MariaDB.
+In deze cursus behandelen we enkel SQL-databanken en specifiek MariaDB.
 
 ## DDL vs DML
 
-SQL statements can be divided into two categories:
+SQL-opdrachten vallen in twee categorieën:
 
-* **Data definition language \(DDL\)** statements are used for creating tables, relationships and other structures. More specifically DDL statements are used to define a database's schema.
-* **Data manipulation language \(DML\)** statements are used for queries and data modification. DML queries are used to access, create, filter, update, delete and calculate data.
+- **Data Definition Language (DDL)**: Creëert tabellen, relaties en andere structuren (schema-definitie).
+- **Data Manipulation Language (DML)**: Queries en bewerkingen op gegevens, zoals filteren, bijwerken en verwijderen.
 
-## CRUD
+## CRUD-principes
 
-In computer programming, **create**, **read**, **update**, and **delete** (CRUD) are the four basic functions of persistent storage.
+CRUD staat voor **Create, Read, Update, Delete**, de vier basisbewerkingen voor gegevensopslag.
 
-* **C**reate: Adding new data
-* **R**ead: Requesting data
-* **U**pdate: Changing data
-* **D**elete: Removing data
+| Actie | DDL | DML |
+|---|---|---|
+| C | `CREATE TABLE` | `INSERT INTO` |
+| R | `SHOW COLUMNS` | `SELECT` |
+| U | `ALTER TABLE` | `UPDATE` |
+| D | `DROP TABLE` | `DELETE FROM` |
 
-Virtualy any software application makes use of this CRUD functionality.
+Tabel 1: CRUD in relatie tot DDL en DML.
 
-For relational databases we can even apply this to the data definition and data manipulation languages.
+In de volgende hoofdstukken gaan we dieper in op deze SQL-opdrachten.
 
-Action | DDL | DML
----|---|---
-C | `CREATE TABLE` | `INSERT INTO`
-R | `SHOW COLUMNS` | `SELECT`
-U | `ALTER TABLE` | `UPDATE`
-D | `DROP TABLE` | `DELETE FROM`
-
-Table 1: CRUD in relation to DDL and DML.
-
-The query statements mentioned above will be explained thoroughly in the next chapters.
-
-:::tip Case
-Although SQL is by default case insensitive, all SQL keywords in this course will be presented as uppercase, while variable names will be in lowercase.
+:::tip Hoofdlettergebruik
+SQL is standaard **niet hoofdlettergevoelig**, maar in deze cursus worden **SQL-trefwoorden in hoofdletters** weergegeven en variabelen in kleine letters.
 :::
+
