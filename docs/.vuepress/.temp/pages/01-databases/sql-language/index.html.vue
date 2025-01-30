@@ -1,79 +1,71 @@
-<template><div><h1 id="sql" tabindex="-1"><a class="header-anchor" href="#sql"><span>SQL</span></a></h1>
-<p>SQL can be pronounced as:</p>
+<template><div><h1 id="inleiding-tot-sql" tabindex="-1"><a class="header-anchor" href="#inleiding-tot-sql"><span>Inleiding tot SQL</span></a></h1>
+<h2 id="wat-is-sql" tabindex="-1"><a class="header-anchor" href="#wat-is-sql"><span>Wat is SQL?</span></a></h2>
+<p>SQL kan op de volgende manieren worden uitgesproken:</p>
 <ul>
-<li>Letters: S-Q-L</li>
-<li>Or as <code v-pre>sequel</code></li>
+<li>Als losse letters: S-Q-L</li>
+<li>Of als <code v-pre>sequel</code></li>
 </ul>
-<p>SQL is an acronym for Structured Query Language. It is a domain-specific language that is designed specifically for communicating with databases. A domain-specific langauge, like SQL, is designed to do one thing, and do it very well in a very specific context. SQL provides you with a simple and efficient way to read and write data from a database.</p>
-<p>SQL uses a relational database model. A relational database organizes sets of data in relation to each other. This has some advantages:</p>
+<p>SQL staat voor Structured Query Language. Het is een domeinspecifieke taal die speciaal is ontworpen voor communicatie met databanken. Een domeinspecifieke taal zoals SQL is ontworpen om één taak goed uit te voeren binnen een specifieke context. SQL biedt een eenvoudige en efficiënte manier om gegevens in een databank te lezen en te schrijven.</p>
+<h2 id="relationeel-datamodel" tabindex="-1"><a class="header-anchor" href="#relationeel-datamodel"><span>Relationeel datamodel</span></a></h2>
+<p>SQL gebruikt een relationeel datamodel. Een relationele databank organiseert gegevens in relatie tot elkaar. Dit heeft enkele voordelen:</p>
 <ul>
-<li>These relations allow the reduce the data storage footprint and better performance.</li>
-<li>It has a strong data integrity through ACID. ACID is an acronym for <strong>A</strong>tomicity, <strong>C</strong>onsistency, <strong>I</strong>solation, and <strong>D</strong>urability.</li>
-<li>SQL provides an abstraction over how the data is represented on disk.</li>
+<li>De relaties verminderen de opslagruimte en verbeteren de prestaties.</li>
+<li>Er is sterke gegevensintegriteit dankzij ACID (<strong>A</strong>tomiciteit, <strong>C</strong>onsistentie, <strong>I</strong>solatie en <strong>D</strong>uurzaamheid).</li>
+<li>SQL biedt een abstractie van hoe de gegevens fysiek worden opgeslagen.</li>
 </ul>
-<p>Unfortunately SQL also has some limitations:</p>
+<p>Toch heeft SQL ook enkele beperkingen:</p>
 <ul>
-<li>Its data model is best carefully designed up-front. Changing a schema results in downtime.</li>
-<li>SQL databases have been developed before distributed computing. It does no scale to multiple computer systems out-of-the-box. There are good examples of systems which use SQL databases in a distributed way, e.g. Facebook is built MySQL.</li>
+<li>Het datamodel moet vooraf goed worden ontworpen. Wijzigingen in een schema kunnen downtime veroorzaken.</li>
+<li>SQL-databanken zijn oorspronkelijk ontwikkeld voordat gedistribueerd rekenen gebruikelijk was. Standaard werken ze niet direct op meerdere systemen, al zijn er uitzonderingen zoals Facebook's MySQL-oplossingen.</li>
 </ul>
-<h2 id="standard-database-query-language" tabindex="-1"><a class="header-anchor" href="#standard-database-query-language"><span>Standard database query language</span></a></h2>
-<p>SQL is not proprietary. It is not used by specific database vendors. Almost every major DBMS system supports SQL. This enables you to interact with just about every database you’ll run into.</p>
-<p>SQL is easy to learn. The statements are all made up of descriptive English words, which makes reading SQL queries quite intuitive. Despite its apparent simplicity, SQL is actually very powerful. Cleverly using its language elements, you can perform very complex and sophisticated database operations, in a very optimized way.</p>
+<h2 id="standaard-querytaal" tabindex="-1"><a class="header-anchor" href="#standaard-querytaal"><span>Standaard querytaal</span></a></h2>
+<p>SQL is geen eigendom van een specifiek bedrijf en wordt door bijna alle grote DBMS-systemen ondersteund. Dit maakt het mogelijk om met bijna elke databank te communiceren.</p>
+<p>SQL is eenvoudig te leren. De opdrachten bestaan uit beschrijvende Engelse woorden, waardoor het intuïtief te lezen is. Ondanks de eenvoud is SQL zeer krachtig en kunnen complexe bewerkingen efficiënt worden uitgevoerd.</p>
 <div class="hint-container tip">
 <p class="hint-container-title">Tips</p>
-<p>If you can build a SQL query, this is preferred over fetching all data and filter or calculate the result in an application.</p>
+<p>Als je een SQL-query kunt bouwen, verdient dit de voorkeur boven het ophalen van alle gegevens en filteren in een applicatie.</p>
 </div>
-<h3 id="mariadb" tabindex="-1"><a class="header-anchor" href="#mariadb"><span>MariaDB</span></a></h3>
+<h2 id="mariadb-en-mysql" tabindex="-1"><a class="header-anchor" href="#mariadb-en-mysql"><span>MariaDB en MySQL</span></a></h2>
 <div class="hint-container tip">
 <p class="hint-container-title">ℹ️ MySQL vs MariaDB</p>
-<p>MySQL is maintained by Oracle. MySQL is free to use but not entirely open source. Some parts are closed source. This was not the vision of the original developers, who felt there was a conflict of interest between MySQL and Oracle Database Server. Therefor they created a fork that replaces the closed source parts with open source alternatives. This fork is called <strong>MariaDB</strong>, and is guaranteed to stay open source.</p>
-<p>MariaDB and MySQL are therefor compatible. All MySQL command are compatible with MariaDB and vice versa.</p>
+<p>MySQL wordt beheerd door Oracle en is deels gesloten source. De oorspronkelijke ontwikkelaars vonden dit niet in lijn met hun visie en creëerden een open source fork: <strong>MariaDB</strong>.</p>
+<p>MariaDB is volledig open source en compatibel met MySQL, wat betekent dat alle MySQL-opdrachten ook in MariaDB werken.</p>
 </div>
-<p><img src="@source/01-databases/sql-language/img/mariadb_vs_mysql.jpg" alt="MariaDB and MySQL logo"></p>
-<p>Figure 1: MariaDB and MySQL logo's.</p>
-<p>MySQL has become one of the most popular database management systems in the world. It can be used for small development projects to large and prestigious sites on the web. MySQL has proven itself to be solid, reliable, fast and trusted to all sorts of data storage needs.</p>
-<p>MySQL and MariaDB are open source and free to use. This makes it one of the most popular databases. It is also the best supported and best documented database for web based projects. A popular <em>stack</em> is LAMP. This consists of <strong>L</strong>inux operating system, <strong>A</strong>pache webserver, <strong>M</strong>ariaDB database and <strong>P</strong>HP programming language. On Windows a management tool called XAMPP contains these elements, except for Linux of course.</p>
-<p>There are also other SQL databases, such as:</p>
+<p><img src="@source/01-databases/sql-language/img/mariadb_vs_mysql.jpg" alt="MariaDB en MySQL logo"></p>
+<p>Figuur 1: MariaDB en MySQL logo's.</p>
+<p>MySQL en MariaDB zijn populaire DBMS-systemen. Ze worden gebruikt voor zowel kleine projecten als grote toepassingen. Door hun betrouwbaarheid en snelheid zijn ze breed geaccepteerd in webontwikkeling, vaak als onderdeel van een <strong>LAMP</strong>-stack (<strong>L</strong>inux, <strong>A</strong>pache, <strong>M</strong>ariaDB, <strong>P</strong>HP).</p>
+<p>Andere veelgebruikte SQL-databanken zijn onder andere:</p>
 <ul>
 <li>PostgreSQL</li>
-<li>Oracle</li>
-<li>SQL Server</li>
-<li>...</li>
+<li>Oracle Database</li>
+<li>Microsoft SQL Server</li>
 </ul>
 <h2 id="nosql" tabindex="-1"><a class="header-anchor" href="#nosql"><span>NoSQL</span></a></h2>
-<p>SQL has been the industry standard since the late 1970's. However, in a distributed computing environment, SQL's consistency has been replaced with <em>eventual consistency</em> in favor of more speed, availability and partition tolerance, this is to distribute the database over multiple computer systems more easily. NoSQL is a term which refers to all database systems which are not SQL. More specifically, the data structures used in a NoSQL database are different from the relational model of SQL. These can be:</p>
+<p>Sinds de jaren ‘70 is SQL de standaard, maar in gedistribueerde systemen is SQL’s <strong>consistentie</strong> vervangen door <strong>eventuele consistentie</strong> om snelheid en beschikbaarheid te verbeteren. <strong>NoSQL</strong> verwijst naar databanken die geen relationeel model hanteren, zoals:</p>
 <ul>
-<li>key-value, e.g. Dynamo</li>
-<li>wide column, e.g. Cassandra</li>
-<li>graph, e.g. Neo4J</li>
-<li>document, e.g. MongoDB</li>
-<li>time series, e.g. InfluxDB</li>
+<li><strong>Key-Value Stores</strong>: DynamoDB</li>
+<li><strong>Wide Column Stores</strong>: Cassandra</li>
+<li><strong>Graph Databases</strong>: Neo4J</li>
+<li><strong>Document Databases</strong>: MongoDB</li>
+<li><strong>Time Series Databases</strong>: InfluxDB</li>
 </ul>
 <div class="hint-container tip">
-<p class="hint-container-title">ℹ️ Most popular databases</p>
-<p>There is a ranking of <a href="https://db-engines.com/en/ranking" target="_blank" rel="noopener noreferrer">most popular databases</a>. Just keep in mind that most popular does not always mean the best.</p>
+<p class="hint-container-title">ℹ️ Populaire databanken</p>
+<p>Een overzicht van de <a href="https://db-engines.com/en/ranking" target="_blank" rel="noopener noreferrer">meest populaire databanken</a>.</p>
 </div>
-<p>In this course we are only going to study SQL databases and more specifically MariaDB.</p>
+<p>In deze cursus behandelen we enkel SQL-databanken en specifiek MariaDB.</p>
 <h2 id="ddl-vs-dml" tabindex="-1"><a class="header-anchor" href="#ddl-vs-dml"><span>DDL vs DML</span></a></h2>
-<p>SQL statements can be divided into two categories:</p>
+<p>SQL-opdrachten vallen in twee categorieën:</p>
 <ul>
-<li><strong>Data definition language (DDL)</strong> statements are used for creating tables, relationships and other structures. More specifically DDL statements are used to define a database's schema.</li>
-<li><strong>Data manipulation language (DML)</strong> statements are used for queries and data modification. DML queries are used to access, create, filter, update, delete and calculate data.</li>
+<li><strong>Data Definition Language (DDL)</strong>: Creëert tabellen, relaties en andere structuren (schema-definitie).</li>
+<li><strong>Data Manipulation Language (DML)</strong>: Queries en bewerkingen op gegevens, zoals filteren, bijwerken en verwijderen.</li>
 </ul>
-<h2 id="crud" tabindex="-1"><a class="header-anchor" href="#crud"><span>CRUD</span></a></h2>
-<p>In computer programming, <strong>create</strong>, <strong>read</strong>, <strong>update</strong>, and <strong>delete</strong> (CRUD) are the four basic functions of persistent storage.</p>
-<ul>
-<li><strong>C</strong>reate: Adding new data</li>
-<li><strong>R</strong>ead: Requesting data</li>
-<li><strong>U</strong>pdate: Changing data</li>
-<li><strong>D</strong>elete: Removing data</li>
-</ul>
-<p>Virtualy any software application makes use of this CRUD functionality.</p>
-<p>For relational databases we can even apply this to the data definition and data manipulation languages.</p>
+<h2 id="crud-principes" tabindex="-1"><a class="header-anchor" href="#crud-principes"><span>CRUD-principes</span></a></h2>
+<p>CRUD staat voor <strong>Create, Read, Update, Delete</strong>, de vier basisbewerkingen voor gegevensopslag.</p>
 <table>
 <thead>
 <tr>
-<th>Action</th>
+<th>Actie</th>
 <th>DDL</th>
 <th>DML</th>
 </tr>
@@ -101,11 +93,11 @@
 </tr>
 </tbody>
 </table>
-<p>Table 1: CRUD in relation to DDL and DML.</p>
-<p>The query statements mentioned above will be explained thoroughly in the next chapters.</p>
+<p>Tabel 1: CRUD in relatie tot DDL en DML.</p>
+<p>In de volgende hoofdstukken gaan we dieper in op deze SQL-opdrachten.</p>
 <div class="hint-container tip">
-<p class="hint-container-title">Case</p>
-<p>Although SQL is by default case insensitive, all SQL keywords in this course will be presented as uppercase, while variable names will be in lowercase.</p>
+<p class="hint-container-title">Hoofdlettergebruik</p>
+<p>SQL is standaard <strong>niet hoofdlettergevoelig</strong>, maar in deze cursus worden <strong>SQL-trefwoorden in hoofdletters</strong> weergegeven en variabelen in kleine letters.</p>
 </div>
 </div></template>
 

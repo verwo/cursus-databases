@@ -1,7 +1,3 @@
----
-
-## title: MySQL Datatypes
-
 # Inleiding tot MySQL Datatypes
 
 Datatypes bepalen **wat** er in een kolom kan worden opgeslagen en **hoe** deze gegevens worden opgeslagen.

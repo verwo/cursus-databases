@@ -1,43 +1,43 @@
-<template><div><h1 id="databases-introduction" tabindex="-1"><a class="header-anchor" href="#databases-introduction"><span>Databases Introduction</span></a></h1>
-<h2 id="what-is-a-database" tabindex="-1"><a class="header-anchor" href="#what-is-a-database"><span>What is a database?</span></a></h2>
-<p>The word database is used in many ways. For our purpose we will use the following definition:</p>
+<template><div><h1 id="inleiding-tot-databanken" tabindex="-1"><a class="header-anchor" href="#inleiding-tot-databanken"><span>Inleiding tot Databanken</span></a></h1>
+<h2 id="wat-is-een-databank" tabindex="-1"><a class="header-anchor" href="#wat-is-een-databank"><span>Wat is een databank?</span></a></h2>
+<p>Het woord databank wordt op veel manieren gebruikt. Voor ons doel hanteren we de volgende definitie:</p>
 <blockquote>
-<p>A database is a collection of data stored in some organized fashion.</p>
+<p>Een databank is een verzameling gegevens die op een georganiseerde manier is opgeslagen.</p>
 </blockquote>
-<p>You can think of a database as some kind of cabinet. It is simply a physical location to store data, regardless of what data is or how it is stored.</p>
+<p>Je kunt een databank zien als een soort archiefkast. Het is simpelweg een fysieke locatie om gegevens op te slaan, ongeacht wat deze gegevens zijn of hoe ze zijn opgeslagen.</p>
 <h3 id="database-management-system-dbms" tabindex="-1"><a class="header-anchor" href="#database-management-system-dbms"><span>DataBase Management System - DBMS</span></a></h3>
-<p>The term <code v-pre>database</code> does not refer to the database software that is used. This might create much confusion if not used correctly. The <em>database software</em> is called the Database Management System or DBMS.</p>
-<p>The database is the container that is created and can be manipulated using the DBMS. MySQL in this case is a DBMS system, not the physical database.</p>
-<p>A database might be a file on a hard drive, but it could also be stored completely in memory. It is not even significant as you never access a database directly anyway. You always use the DBMS that accesses the database for you.</p>
+<p>De term <code v-pre>databank</code> verwijst niet naar de database-software die wordt gebruikt. Dit kan veel verwarring veroorzaken als het niet correct wordt gebruikt. De <em>database-software</em> wordt het Database Management System of DBMS genoemd.</p>
+<p>De databank is de container die wordt aangemaakt en kan worden beheerd met behulp van het DBMS. MySQL is in dit geval een DBMS-systeem, niet de fysieke databank.</p>
+<p>Een databank kan een bestand op een harde schijf zijn, maar kan ook volledig in het geheugen worden opgeslagen. Dit is niet van belang, omdat je een databank nooit direct benadert. Je gebruikt altijd het DBMS om toegang te krijgen tot de databank.</p>
 <p><img src="@source/01-databases/introduction/img/dbms.png" alt="Database vs DBMS"></p>
-<p>Figure 1: Database and DBMS</p>
-<h2 id="tables" tabindex="-1"><a class="header-anchor" href="#tables"><span>Tables</span></a></h2>
-<p>When storing information in a filing cabinet, you don’t just toss it in a drawer. You create files within the cabinet. You file related data in specific files.</p>
-<p>In the database world, the file is called a table. A table is a <em>structured file</em> that can store data of a specific type. A table may contain a list of customers, a product catalog or any other list of information.</p>
-<p><img src="@source/01-databases/introduction/img/ficherosclasicoscatalogo.jpg" alt="Filing cabinet"></p>
-<p>Figure 2: Filing cabinet</p>
-<p>When using tables in a database, there are some rules that the tables need to apply to. Tables that do not fit the following description cannot be stored inside a database, and need to be reorganized.</p>
+<p>Figuur 1: Database en DBMS</p>
+<h2 id="tabellen" tabindex="-1"><a class="header-anchor" href="#tabellen"><span>Tabellen</span></a></h2>
+<p>Bij het opslaan van informatie in een archiefkast gooi je het niet zomaar in een lade. Je maakt bestanden binnen de kast. Gerelateerde gegevens worden in specifieke bestanden geplaatst.</p>
+<p>In de databankwereld wordt een bestand een tabel genoemd. Een tabel is een <em>gestructureerd bestand</em> waarin gegevens van een specifiek type kunnen worden opgeslagen. Een tabel kan een lijst van klanten, een productcatalogus of een andere lijst met informatie bevatten.</p>
+<p><img src="@source/01-databases/introduction/img/ficherosclasicoscatalogo.jpg" alt="Archiefkast"></p>
+<p>Figuur 2: Archiefkast</p>
+<p>Bij het gebruik van tabellen in een databank moeten deze aan bepaalde regels voldoen. Tabellen die niet aan de volgende beschrijving voldoen, kunnen niet in een databank worden opgeslagen en moeten worden gereorganiseerd:</p>
 <ul>
-<li>Rows contain data about an entity</li>
-<li>Columns contain data about the attributes of that entity</li>
-<li>All entries in a column are of the same kind</li>
-<li>Each column has a unique name</li>
-<li>Cells of a table hold a single value</li>
-<li>Order of columns is not important</li>
-<li>Order of rows is not important</li>
-<li>No two rows may be identical</li>
+<li>Rijen bevatten gegevens over een entiteit</li>
+<li>Kolommen bevatten gegevens over de attributen van die entiteit</li>
+<li>Alle invoer in een kolom is van hetzelfde type</li>
+<li>Elke kolom heeft een unieke naam</li>
+<li>Cellen van een tabel bevatten slechts één waarde</li>
+<li>De volgorde van kolommen is niet belangrijk</li>
+<li>De volgorde van rijen is niet belangrijk</li>
+<li>Geen twee rijen mogen identiek zijn</li>
 </ul>
-<p>The key is that data stored in a table is of <em>one type</em> of data or a list. You should never store a list of customers and a list of orders in the same database table. Technically it is possible, but it would make retrieving information and access very difficult. A better solution is to create two tables for each list.</p>
-<p>Every table in a database has a name that identifies it. The name is always unique for a given database.</p>
-<p><strong>Customers table</strong>:</p>
+<p>Het belangrijkste is dat gegevens die in een tabel worden opgeslagen van <em>één type</em> zijn of een lijst vormen. Je zou nooit een lijst met klanten en een lijst met bestellingen in dezelfde database-tabel moeten opslaan. Technisch gezien is dit mogelijk, maar het zou het opvragen en beheren van informatie erg moeilijk maken. Een betere oplossing is om twee tabellen te maken voor elke lijst.</p>
+<p>Elke tabel in een databank heeft een naam die deze identificeert. De naam is altijd uniek binnen een bepaalde databank.</p>
+<p><strong>Klantentabel</strong>:</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Email</th>
-<th>Address</th>
-<th>City</th>
-<th>State</th>
+<th>Naam</th>
+<th>E-mail</th>
+<th>Adres</th>
+<th>Stad</th>
+<th>Provincie</th>
 </tr>
 </thead>
 <tbody>
@@ -64,53 +64,53 @@
 </tr>
 </tbody>
 </table>
-<p>Table 1: An example Customers table</p>
+<p>Tabel 1: Een voorbeeld van een klantentabel</p>
 <h3 id="schema-s" tabindex="-1"><a class="header-anchor" href="#schema-s"><span>Schema's</span></a></h3>
 <blockquote>
-<p>Rows contain data about an entity
-Columns contain data about the attributes of that entity</p>
+<p>Rijen bevatten gegevens over een entiteit
+Kolommen bevatten gegevens over de attributen van die entiteit</p>
 </blockquote>
-<p>Tables have characteristics and properties that define how data is stored in them. This includes information about what data may be stored, how it is broken up, how individual pieces of information are named and much more… The set of information that describes a table is known as a schema. Schemas are used to describe specific tables within a database, as well as entire relationships between tables in them.</p>
-<h3 id="columns-and-datatypes" tabindex="-1"><a class="header-anchor" href="#columns-and-datatypes"><span>Columns and datatypes</span></a></h3>
+<p>Tabellen hebben kenmerken en eigenschappen die bepalen hoe gegevens erin worden opgeslagen. Dit omvat informatie over welk type gegevens mogen worden opgeslagen, hoe deze worden gestructureerd, hoe individuele stukken informatie worden benoemd en meer. De verzameling informatie die een tabel beschrijft, wordt een schema genoemd. Schema’s worden gebruikt om specifieke tabellen binnen een databank te beschrijven, evenals de relaties tussen tabellen.</p>
+<h3 id="kolommen-en-datatypes" tabindex="-1"><a class="header-anchor" href="#kolommen-en-datatypes"><span>Kolommen en datatypes</span></a></h3>
 <blockquote>
-<p>All entries in a column are of the same kind</p>
+<p>Alle invoer in een kolom is van hetzelfde type</p>
 </blockquote>
-<p>Tables are made up of columns. Columns contain a particular piece of information within the table. You can envision database tables as grids (like spreadsheets). Each column on the grid contains a particular piece of information.</p>
-<p>Each column in a database has an associated <strong>datatype</strong>. It defines what the type the data the column can contain.</p>
-<p>Eg: Numeric, date, text, currency,…</p>
+<p>Tabellen bestaan uit kolommen. Kolommen bevatten een specifiek stukje informatie binnen de tabel. Je kunt database-tabellen zien als roosters (zoals spreadsheets). Elke kolom in het rooster bevat een specifiek stukje informatie.</p>
+<p>Elke kolom in een databank heeft een bijbehorend <strong>datatype</strong>. Dit bepaalt welk type gegevens de kolom kan bevatten.</p>
+<p>Bijvoorbeeld: numeriek, datum, tekst, valuta,…</p>
 <div class="hint-container tip">
 <p class="hint-container-title">Tips</p>
-<p>Datatypes are very important for a database. They restrict the type of data that can be stored in the column, preventing wrong information to be stored. It can also help sorting the data correctly and efficiently. They play an important role in optimizing disk usage.</p>
+<p>Datatypes zijn erg belangrijk voor een databank. Ze beperken het type gegevens dat in de kolom kan worden opgeslagen, waardoor wordt voorkomen dat verkeerde informatie wordt opgeslagen. Ze helpen ook bij het correct en efficiënt sorteren van gegevens en spelen een belangrijke rol bij het optimaliseren van schijfgebruik.</p>
 </div>
-<h3 id="rows" tabindex="-1"><a class="header-anchor" href="#rows"><span>Rows</span></a></h3>
-<p>Data in a table is stored in rows. Each record saved is stored in its own row.</p>
-<p>Eg: A customer table might store one customer per row</p>
-<p>The number of rows in the table is the number of records in it. <em>Record</em> and <em>row</em> are used interchangeably but row is technically the correct term.</p>
-<h3 id="primary-keys" tabindex="-1"><a class="header-anchor" href="#primary-keys"><span>Primary keys</span></a></h3>
+<h3 id="rijen" tabindex="-1"><a class="header-anchor" href="#rijen"><span>Rijen</span></a></h3>
+<p>Gegevens in een tabel worden opgeslagen in rijen. Elke opgeslagen record wordt in een aparte rij bewaard.</p>
+<p>Bijvoorbeeld: Een klantentabel kan één klant per rij opslaan.</p>
+<p>Het aantal rijen in de tabel is gelijk aan het aantal records. De termen <em>record</em> en <em>rij</em> worden vaak door elkaar gebruikt, maar <em>rij</em> is technisch gezien de correcte term.</p>
+<h3 id="primaire-sleutels" tabindex="-1"><a class="header-anchor" href="#primaire-sleutels"><span>Primaire sleutels</span></a></h3>
 <div class="hint-container warning">
-<p class="hint-container-title">Rule</p>
-<p>Rows may not be identical to eachother.</p>
+<p class="hint-container-title">Regel</p>
+<p>Rijen mogen niet identiek zijn.</p>
 </div>
-<p>Every row in a table must have a column (or set of columns) that uniquely identifies it. These column or set of columns are called the primary key. The primary key is used to refer to a specific row.</p>
-<p>Without a primary key updating or deleting specific rows in a table becomes extremely difficult. There is no guaranteed safe way to refer to just the rows to be affected.</p>
+<p>Elke rij in een tabel moet een kolom (of set van kolommen) hebben die deze uniek identificeert. Deze kolom of set van kolommen wordt de primaire sleutel genoemd. De primaire sleutel wordt gebruikt om naar een specifieke rij te verwijzen.</p>
+<p>Zonder een primaire sleutel wordt het bijwerken of verwijderen van specifieke rijen in een tabel erg moeilijk. Er is geen gegarandeerde veilige manier om alleen de betreffende rijen te selecteren.</p>
 <div class="hint-container warning">
-<p class="hint-container-title">Great advice</p>
-<p>Always define primary keys!</p>
+<p class="hint-container-title">Belangrijke tip</p>
+<p>Definieer altijd primaire sleutels!</p>
 </div>
-<p>Primary keys are not required, but defining them makes future data manipulation is possible and manageable.</p>
-<p>Any column can be selected as the primary key as long as it meets the following conditions:</p>
+<p>Primaire sleutels zijn niet verplicht, maar het definiëren ervan maakt toekomstige gegevensmanipulatie mogelijk en beheersbaar.</p>
+<p>Elke kolom kan als primaire sleutel worden geselecteerd zolang deze aan de volgende voorwaarden voldoet:</p>
 <ol>
-<li>No two rows can have the same primary key value (unique)</li>
-<li>Every row must have a primary key value (NULL is not allowed)</li>
+<li>Geen twee rijen mogen dezelfde primaire sleutelwaarde hebben (uniekheid)</li>
+<li>Elke rij moet een primaire sleutelwaarde hebben (NULL is niet toegestaan)</li>
 </ol>
-<p>These rules are enforced by MySQL.</p>
-<p>A primary key might consist of multiple columns. Then it is also called a composite key. When multiple columns are used, the same rules apply to all columns that make up the primary key. Individual columns do need not to have unique values, but the whole key combined must be unique.</p>
-<h4 id="primary-key-best-practices" tabindex="-1"><a class="header-anchor" href="#primary-key-best-practices"><span>Primary key best practices</span></a></h4>
-<p>In addition to the rules that MySQL enforces, there are some best practices when choosing a primary key</p>
+<p>Deze regels worden afgedwongen door MySQL.</p>
+<p>Een primaire sleutel kan uit meerdere kolommen bestaan. In dat geval wordt deze een <em>samengestelde sleutel</em> genoemd. Wanneer meerdere kolommen worden gebruikt, gelden dezelfde regels voor alle kolommen die deel uitmaken van de primaire sleutel. Individuele kolommen hoeven niet uniek te zijn, maar de hele sleutel in combinatie moet uniek zijn.</p>
+<h4 id="best-practices-voor-primaire-sleutels" tabindex="-1"><a class="header-anchor" href="#best-practices-voor-primaire-sleutels"><span>Best practices voor primaire sleutels</span></a></h4>
+<p>Naast de regels die MySQL afdwingt, zijn er enkele best practices bij het kiezen van een primaire sleutel:</p>
 <ul>
-<li>Don't update values in primary key columns</li>
-<li>Don't reuse values in primary key columns</li>
-<li>Don't use values that might change in primary key columns</li>
+<li>Wijzig geen waarden in primaire sleutelkolommen</li>
+<li>Hergebruik geen waarden in primaire sleutelkolommen</li>
+<li>Gebruik geen waarden die kunnen veranderen in primaire sleutelkolommen</li>
 </ul>
 </div></template>
 
