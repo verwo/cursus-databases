@@ -3,6 +3,9 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 
 export default defineUserConfig({
+  plugins: [
+    'vuepress-plugin-mermaidjs'
+  ],
   bundler: viteBundler(),
   theme: defaultTheme({
     sidebarDepth: 0,

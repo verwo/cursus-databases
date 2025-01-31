@@ -29,7 +29,7 @@ erDiagram
     CAR ||--o{ NAMED-DRIVER : allows
     PERSON ||--o{ NAMED-DRIVER : is
 
-```
+```mermaid
 erDiagram
     WERKNEMER ||--o{ AFDELING : werkt_in
     WERKNEMER ||--o{ KANTOORRUIMTE : heeft

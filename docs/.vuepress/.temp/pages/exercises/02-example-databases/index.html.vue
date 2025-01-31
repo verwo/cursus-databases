@@ -1,54 +1,61 @@
-<template><div><h1 id="setting-up-example-databases" tabindex="-1"><a class="header-anchor" href="#setting-up-example-databases"><span>Setting up example databases</span></a></h1>
-<p>In this course we use the forta database. This database is made by Ben Forta (<a href="http://forta.com/" target="_blank" rel="noopener noreferrer">http://forta.com/</a>). On this page we will go step by step how to create this database.</p>
-<p>You will need a mysql server (XAMPP) and a mysql client(command prompt, Bash or PowerShell will do).</p>
-<p>You will also need to download the files <a href="https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip" target="_blank" rel="noopener noreferrer">https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip</a> and unzip them.</p>
-<div class="hint-container tip">
-<p class="hint-container-title">SQL Keywords in capital letters</p>
-<p>In this course we will put all the SQL-code in capitals, this is not necessary but it will make clear to you what is static SQL-code and what are names that you can change.</p>
-</div>
-<h2 id="connecting-to-the-database" tabindex="-1"><a class="header-anchor" href="#connecting-to-the-database"><span>Connecting to the database</span></a></h2>
-<p>First start up your databaseserver as you learned on the previous page. Now open your mysql client in the folder where you unziped the files. You can open the client by typing <code v-pre>PowerShell</code> in the address bar in your windows explorer. Now type <code v-pre>mysql -u root</code> in your client.</p>
+<template><div><h1 id="voorbeeld-databases-instellen" tabindex="-1"><a class="header-anchor" href="#voorbeeld-databases-instellen"><span>Voorbeeld Databases Instellen</span></a></h1>
+<p>In deze cursus gebruiken we de <strong>forta</strong>-database. Deze database is gemaakt door Ben Forta (<a href="http://forta.com/" target="_blank" rel="noopener noreferrer">http://forta.com/</a>). Op deze pagina doorlopen we stap voor stap hoe je deze database kunt aanmaken.</p>
+<p>Je hebt een MySQL-server nodig (bijvoorbeeld XAMPP) en een MySQL-client (Command Prompt, Bash of PowerShell volstaat).</p>
+<p>Je moet ook de bestanden downloaden van <a href="https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip" target="_blank" rel="noopener noreferrer">https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip</a> en uitpakken.</p>
+<blockquote>
+<p>💡 <strong>Tip:</strong> SQL-sleutelwoorden in hoofdletters<br>
+In deze cursus schrijven we alle SQL-code in hoofdletters. Dit is niet verplicht, maar helpt bij het onderscheiden van vaste SQL-code en namen die je kunt wijzigen.</p>
+</blockquote>
+<h2 id="verbinden-met-de-database" tabindex="-1"><a class="header-anchor" href="#verbinden-met-de-database"><span>Verbinden met de database</span></a></h2>
+<p>Start eerst je databaseserver zoals geleerd in het vorige hoofdstuk. Open vervolgens je MySQL-client in de map waar je de bestanden hebt uitgepakt. Je kunt de client openen door <code v-pre>PowerShell</code> in de adresbalk van Windows Verkenner te typen en vervolgens het volgende commando in te voeren:</p>
+<div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh" data-title="sh"><pre v-pre><code><span class="line">mysql <span class="token parameter variable">-u</span> root</span>
+<span class="line"></span></code></pre>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Verklaring van de parameters:</p>
 <ul>
-<li><code v-pre>mysql</code>: this tells your command prompt or powerschell to start the mysql client.</li>
-<li><code v-pre>-u root</code>: the -u tells the client to log with the given name, in this case 'root'.</li>
-<li><code v-pre>-p</code>: the -p tells the client to ask for a password after you pressed enter.</li>
-<li><code v-pre>-h 127.0.0.1</code>: this tells the client to connect on ip-address 127.0.0.1, can be used for connection on remote servers, when not specified it will use localhost.</li>
+<li><code v-pre>mysql</code>: start de MySQL-client.</li>
+<li><code v-pre>-u root</code>: log in als gebruiker <code v-pre>root</code>.</li>
+<li><code v-pre>-p</code>: vraagt om een wachtwoord na het indrukken van Enter.</li>
+<li><code v-pre>-h 127.0.0.1</code>: specificeert het IP-adres van de server (gebruik <code v-pre>localhost</code> indien niet opgegeven).</li>
 </ul>
-<p>You should be connected now and see</p>
+<p>Na verbinding zie je de prompt:</p>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">MariaDB [(none)]></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>MariaDB is the name of the database server that is used in xampp. Between the <code v-pre>[ ]</code>is the name of the selected database, for the moment we don't have a database selected so it says <code v-pre>(none)</code>.</p>
-<p>Before we create a new database, let's see what is already in here with</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SHOW</span> <span class="token keyword">databases</span><span class="token punctuation">;</span></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Dit betekent dat je bent verbonden met de server, maar nog geen database hebt geselecteerd.</p>
+<h2 id="bestaande-databases-bekijken" tabindex="-1"><a class="header-anchor" href="#bestaande-databases-bekijken"><span>Bestaande databases bekijken</span></a></h2>
+<p>Voordat we een nieuwe database aanmaken, bekijken we eerst welke databases al bestaan:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>This will show a list of available databases.</p>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">+--------------------+</span>
-<span class="line">| Database           |</span>
-<span class="line">+--------------------+</span>
-<span class="line">| information_schema |</span>
-<span class="line">| mysql              |</span>
-<span class="line">| performance_schema |</span>
-<span class="line">| phpmyadmin         |</span>
-<span class="line">| test               |</span>
-<span class="line">+--------------------+</span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Dit toont een lijst van beschikbare databases, inclusief systeemtaken zoals <code v-pre>mysql</code>, <code v-pre>information_schema</code> en <code v-pre>performance_schema</code>. Deze databases bevatten interne configuratiegegevens en mogen niet gewijzigd worden.</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">MariaDB <span class="token punctuation">[</span><span class="token punctuation">(</span>none<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token operator">></span> <span class="token keyword">SHOW</span> <span class="token keyword">DATABASES</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token operator">+</span><span class="token comment">--------------------+</span></span>
+<span class="line"><span class="token operator">|</span> <span class="token keyword">Database</span>           <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">+</span><span class="token comment">--------------------+</span></span>
+<span class="line"><span class="token operator">|</span> information_schema <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">|</span> mysql              <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">|</span> performance_schema <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">|</span> phpmyadmin         <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">|</span> test               <span class="token operator">|</span></span>
+<span class="line"><span class="token operator">+</span><span class="token comment">--------------------+</span></span>
+<span class="line"><span class="token number">5</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.001</span> sec<span class="token punctuation">)</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>We can see a database named test, let's have a look. Do <code v-pre>USE name;</code> to select the database with that name. you see that the name of the selected database now <code v-pre>test</code> is. Do <code v-pre>show tables;</code>to ask the list of tables in the database. <code v-pre>Empty set (0.00 sec)</code>, it looks like this database is completely empty, you can leave it or delete it with <code v-pre>DROP DATABASE test;</code></p>
-<h2 id="creating-the-database" tabindex="-1"><a class="header-anchor" href="#creating-the-database"><span>Creating the database</span></a></h2>
-<p>First we will create a completely empty database with:</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="de-database-aanmaken-en-importeren" tabindex="-1"><a class="header-anchor" href="#de-database-aanmaken-en-importeren"><span>De database aanmaken en importeren</span></a></h2>
+<h3 id="database-aanmaken" tabindex="-1"><a class="header-anchor" href="#database-aanmaken"><span>Database aanmaken</span></a></h3>
+<p>Maak een lege database aan met:</p>
 <div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> forta<span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">USE</span> forta<span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Now an empty database with name forta has been created and we will now use that database with:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">USE</span> forta<span class="token punctuation">;</span></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="importeren-van-database-structuur" tabindex="-1"><a class="header-anchor" href="#importeren-van-database-structuur"><span>Importeren van database structuur</span></a></h3>
+<p>Om de database-structuur aan te maken, voer het volgende commando uit:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE C:<span class="token operator">/</span>Users<span class="token operator">/</span>Username<span class="token operator">/</span>path<span class="token operator">/</span><span class="token keyword">to</span><span class="token operator">/</span><span class="token keyword">create</span><span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Once you see that the prompt has changed to: <code v-pre>MariaDB [forta]&gt;</code>, you can continue. We are now going to create tables and columns in those tables but we are not doing it ourself. To execute a script, use the <code v-pre>SOURCE scriptname;</code> command, we want to execute the create.sql file we got from the zip folder first.</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE <span class="token keyword">create</span><span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Zorg dat het bestand <code v-pre>create.sql</code> zich in de juiste map bevindt.</p>
+<h3 id="controleren-van-aangemaakte-tabellen" tabindex="-1"><a class="header-anchor" href="#controleren-van-aangemaakte-tabellen"><span>Controleren van aangemaakte tabellen</span></a></h3>
+<p>Om te controleren of de database correct is aangemaakt en welke tabellen erin zitten, gebruik je:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SHOW</span> <span class="token keyword">TABLES</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>If you get an error like this;</p>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">ERROR: Failed to open file 'create.sql', error: 2</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Check if the create.sql file is in the folder where you started you PowerShell or command prompt.</p>
-<p>Now wait until the prompt is back to its normal state. There should be a table in this database now, let's check with <code v-pre>SHOW TABLES;</code>.</p>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">+-----------------+</span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Dit toont informatie over kolommen, types en sleutels.</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">MariaDB [forta]> SHOW TABLES;</span>
+<span class="line">+-----------------+</span>
 <span class="line">| Tables_in_forta |</span>
 <span class="line">+-----------------+</span>
 <span class="line">| customers       |</span>
@@ -58,31 +65,17 @@
 <span class="line">| products        |</span>
 <span class="line">| vendors         |</span>
 <span class="line">+-----------------+</span>
+<span class="line">6 rows in set (0.000 sec)</span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>To see how a table was made, use <code v-pre>DESC tablename;</code>so let's test it with <code v-pre>DESC products;</code></p>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">+------------+--------------+------+-----+---------+-------+</span>
-<span class="line">| Field      | Type         | Null | Key | Default | Extra |</span>
-<span class="line">+------------+--------------+------+-----+---------+-------+</span>
-<span class="line">| prod_id    | char(10)     | NO   | PRI | NULL    |       |</span>
-<span class="line">| vend_id    | int(11)      | NO   | MUL | NULL    |       |</span>
-<span class="line">| prod_name  | char(255)    | NO   |     | NULL    |       |</span>
-<span class="line">| prod_price | decimal(8,2) | NO   |     | NULL    |       |</span>
-<span class="line">| prod_desc  | text         | YES  |     | NULL    |       |</span>
-<span class="line">+------------+--------------+------+-----+---------+-------+</span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="de-database-vullen" tabindex="-1"><a class="header-anchor" href="#de-database-vullen"><span>De database vullen</span></a></h2>
+<p>Gebruik het volgende commando om gegevens in de database te laden:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE C:<span class="token operator">/</span>Users<span class="token operator">/</span>Username<span class="token operator">/</span>path<span class="token operator">/</span><span class="token keyword">to</span><span class="token operator">/</span>populate<span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>In this table we can see what the name, the type, if it can be empty(Null), if it is a key and what the default value is for every column. This one doesn't have any default values so it says NULL. To see all of the information inside of a table, you can always use:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span><span class="token operator">*</span> <span class="token keyword">FROM</span> tablename<span class="token punctuation">;</span></span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>(more info on this will come in the next chapter: Retreiving data) So now we are going to look inside the products table to know what products this company sells.</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Controleer vervolgens of de gegevens correct zijn geladen:</p>
 <div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> products<span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>We get this as answer: <code v-pre>Empty set (0.00 sec)</code>. This means that the company doesn't have any products yet, so let's put some in.</p>
-<h2 id="filling-the-database" tabindex="-1"><a class="header-anchor" href="#filling-the-database"><span>Filling the database</span></a></h2>
-<p>Again, we are not going to do this ourself but use another script for this:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE populate<span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>If we try to execute the command again now we can see the following:</p>
-<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">MariaDB [forta]> select * from products;</span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Als alles correct is geïmporteerd, zie je een lijst met producten.</p>
+<div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">MariaDB [forta]> SELECT * FROM products;</span>
 <span class="line">+---------+---------+----------------+------------+----------------------------------------------------------------+</span>
 <span class="line">| prod_id | vend_id | prod_name      | prod_price | prod_desc                                                      |</span>
 <span class="line">+---------+---------+----------------+------------+----------------------------------------------------------------+</span>
@@ -101,26 +94,30 @@
 <span class="line">| TNT1    |    1003 | TNT (1 stick)  |       2.50 | TNT, red, single stick                                         |</span>
 <span class="line">| TNT2    |    1003 | TNT (5 sticks) |      10.00 | TNT, red, pack of 10 sticks                                    |</span>
 <span class="line">+---------+---------+----------------+------------+----------------------------------------------------------------+</span>
+<span class="line">14 rows in set (0.001 sec)</span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="game-reviews-database" tabindex="-1"><a class="header-anchor" href="#game-reviews-database"><span>Game Reviews database</span></a></h2>
-<p>Download the <a href="/files/gamereviews_example.zip">gamereviews_example.zip</a> file and import the <code v-pre>gamereviews_example.sql</code> file in your database to get access to the tables for this exercise.</p>
-<p>Execute the following command in this project directory with the <code v-pre>mysql</code> client:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">source gamereviews_example<span class="token punctuation">.</span><span class="token keyword">sql</span></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="extra-databases" tabindex="-1"><a class="header-anchor" href="#extra-databases"><span>Extra databases</span></a></h2>
+<h3 id="game-reviews-database" tabindex="-1"><a class="header-anchor" href="#game-reviews-database"><span>Game Reviews database</span></a></h3>
+<p>Download het bestand <a href="../../files/gamereviews_example.zip">gamereviews_example.zip</a> en importeer <code v-pre>gamereviews_example.sql</code> met:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE C:<span class="token operator">/</span>Users<span class="token operator">/</span>Username<span class="token operator">/</span>path<span class="token operator">/</span><span class="token keyword">to</span><span class="token operator">/</span>gamereviews_example<span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="spacex-database" tabindex="-1"><a class="header-anchor" href="#spacex-database"><span>SpaceX database</span></a></h2>
-<p>Download the <a href="/files/spacex.zip">spacex.zip</a> file and import the <code v-pre>spacex.sql</code> file in your database to get access to the tables for this exercise.</p>
-<p>Execute the following command in this project directory with the <code v-pre>mysql</code> client:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">source spacex<span class="token punctuation">.</span><span class="token keyword">sql</span></span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="spacex-database" tabindex="-1"><a class="header-anchor" href="#spacex-database"><span>SpaceX database</span></a></h3>
+<p>Download het bestand <a href="../../files/spacex.zip">spacex.zip</a> en importeer <code v-pre>spacex.sql</code> met:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE C:<span class="token operator">/</span>Users<span class="token operator">/</span>Username<span class="token operator">/</span>path<span class="token operator">/</span><span class="token keyword">to</span><span class="token operator">/</span>spacex<span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h2 id="a-larger-test-database" tabindex="-1"><a class="header-anchor" href="#a-larger-test-database"><span>A larger test database</span></a></h2>
-<p>Some of the examples use a larger testdatabase, a fake database with employees to be exact. If you want test on this bigger database you can get it over at <a href="https://github.com/datacharmer/test_db" target="_blank" rel="noopener noreferrer">datacharmer/test_db</a> on Github. Download the respository as zip or use <code v-pre>git clone</code>. Select the folder where you saved the repository and start your mysql client here. Now reconnect to your database using the following command:</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">mysql <span class="token operator">-</span>u root</span>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><h3 id="grotere-testdatabase" tabindex="-1"><a class="header-anchor" href="#grotere-testdatabase"><span>Grotere testdatabase</span></a></h3>
+<p>Sommige voorbeelden gebruiken een grotere testdatabase met werknemersgegevens. Download deze van <a href="https://github.com/datacharmer/test_db" target="_blank" rel="noopener noreferrer">datacharmer/test_db</a> op GitHub.</p>
+<p>Navigeer naar de map waarin je het bestand hebt opgeslagen en start de MySQL-client. Gebruik vervolgens:</p>
+<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE C:<span class="token operator">/</span>Users<span class="token operator">/</span>Username<span class="token operator">/</span>path<span class="token operator">/</span><span class="token keyword">to</span><span class="token operator">/</span>employees<span class="token punctuation">.</span><span class="token keyword">sql</span><span class="token punctuation">;</span></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>We don't need to create a database ourselfs because that's what the script does so we only need to run</p>
-<div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql" data-title="sql"><pre v-pre><code><span class="line">SOURCE employees<span class="token punctuation">.</span><span class="token keyword">sql</span></span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>This will take a little longer because this script is way bigger. You can open another client and connect to continue this course while the other client is still running.</p>
-<p>So now you have a database to test on. To continue go to the next chapter: Retreiving data.</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div></div></div><p>Dit proces duurt langer omdat het een grotere database betreft. Je kunt een tweede client openen om verder te werken terwijl deze wordt geïmporteerd.</p>
+<h2 id="sql-optimalisaties" tabindex="-1"><a class="header-anchor" href="#sql-optimalisaties"><span>SQL Optimalisaties</span></a></h2>
+<ul>
+<li><strong>Gebruik indexen</strong>: Voorkom trage queries door indexen toe te voegen aan kolommen die vaak worden gebruikt in <code v-pre>WHERE</code>-clausules.</li>
+<li>**Vermijd SELECT ***: Haal alleen de benodigde kolommen op om prestaties te verbeteren.</li>
+<li><strong>Gebruik juiste datatypes</strong>: Gebruik <code v-pre>VARCHAR</code> in plaats van <code v-pre>TEXT</code> als kolomwaarden klein zijn.</li>
+</ul>
+<p>Je hebt nu databases om mee te oefenen. Ga verder naar het volgende hoofdstuk: <strong>Gegevens opvragen (Retrieving Data).</strong></p>
 </div></template>
 
 

@@ -1,4 +1,48 @@
-<template><div><h1 id="er-diagrams" tabindex="-1"><a class="header-anchor" href="#er-diagrams"><span>ER Diagrams</span></a></h1>
+<template><div><h1 id="relationele-database-en-er-diagrammen" tabindex="-1"><a class="header-anchor" href="#relationele-database-en-er-diagrammen"><span>Relationele Database en ER Diagrammen</span></a></h1>
+<h2 id="_1-1-relationele-database" tabindex="-1"><a class="header-anchor" href="#_1-1-relationele-database"><span>1.1 Relationele Database</span></a></h2>
+<p>Een <strong>relationele database</strong> is een database waarin gegevens digitaal worden bijgehouden in gestructureerde tabellen. De software die het beheren van een database mogelijk maakt, wordt een <strong>Database Management Systeem (DBMS)</strong> genoemd. Samen vormen de database en het DBMS een <strong>databasesysteem (DBS)</strong>.</p>
+<p>Relationele databases zijn het meest gebruikte systeem voor het beheer van <strong>persistente gegevens</strong> (gegevens die bewaard moeten blijven). In een <strong>Relationeel Database Management Systeem (RDBMS)</strong> worden gegevens typisch opgeslagen in <strong>tabellen (relations)</strong> met onderlinge <strong>relaties (relationships)</strong>. Tabellen bestaan uit <strong>rijen (records)</strong> en <strong>kolommen (velden)</strong>, waarbij elke rij een uniek item bevat (bijvoorbeeld een product) en elke kolom een specifiek kenmerk vertegenwoordigt (zoals productnaam of prijs).</p>
+<h3 id="tabellen" tabindex="-1"><a class="header-anchor" href="#tabellen"><span>Tabellen</span></a></h3>
+<p>Gegevens worden gegroepeerd in <strong>objecttypes</strong>, die geïmplementeerd worden als <strong>tabellen</strong> met rijen en kolommen:</p>
+<ul>
+<li>Elke rij vertegenwoordigt een <strong>object</strong> (bijv. een klant of product).</li>
+<li>Elke kolom bevat een <strong>attribuut</strong> van dat object (bijv. naam, prijs, e-mail).</li>
+</ul>
+<p><strong>Voorwaarden voor een tabel in een relationele database:</strong></p>
+<ul>
+<li><strong>Uniciteit:</strong> Twee rijen mogen nooit volledig identiek zijn.</li>
+<li><strong>Geen vaste volgorde:</strong> De volgorde van rijen en kolommen heeft geen invloed op de betekenis van de gegevens.</li>
+<li><strong>Atomair:</strong> Elke cel bevat slechts één waarde per attribuut.</li>
+<li><strong>Consistentie:</strong> Geen tegenstrijdige of dubbele gegevens.</li>
+</ul>
+<h3 id="sleutels" tabindex="-1"><a class="header-anchor" href="#sleutels"><span>Sleutels</span></a></h3>
+<h4 id="primaire-sleutel-primary-key-pk" tabindex="-1"><a class="header-anchor" href="#primaire-sleutel-primary-key-pk"><span><strong>Primaire Sleutel (Primary Key - PK)</strong></span></a></h4>
+<p>Een <strong>primaire sleutel</strong> identificeert uniek een rij in een tabel. Dit kan een enkele kolom zijn of een combinatie van kolommen (samengestelde sleutel).</p>
+<ul>
+<li>Een primaire sleutel mag <strong>nooit null</strong> zijn.</li>
+<li>Een tabel moet altijd een primaire sleutel hebben.</li>
+</ul>
+<h4 id="refererende-sleutel-foreign-key-fk" tabindex="-1"><a class="header-anchor" href="#refererende-sleutel-foreign-key-fk"><span><strong>Refererende Sleutel (Foreign Key - FK)</strong></span></a></h4>
+<p>Een <strong>refererende sleutel</strong> verwijst naar de <strong>primaire sleutel</strong> van een andere tabel om relaties tussen tabellen te leggen.</p>
+<h4 id="surrogaatsleutel" tabindex="-1"><a class="header-anchor" href="#surrogaatsleutel"><span><strong>Surrogaatsleutel</strong></span></a></h4>
+<p>Een surrogaatsleutel is een <strong>kunstmatige sleutel</strong> (zoals een ID-kolom) die wordt gebruikt om een rij uniek te identificeren, in plaats van een bestaand attribuut dat kan veranderen.</p>
+<h3 id="relaties" tabindex="-1"><a class="header-anchor" href="#relaties"><span>Relaties</span></a></h3>
+<p>Tabellen kunnen met elkaar verbonden zijn via <strong>relaties</strong>, bijvoorbeeld:</p>
+<ul>
+<li><strong>1:1 Relatie:</strong> Eén werknemer heeft één kantoorruimte.</li>
+<li><strong>1:N Relatie:</strong> Een klant kan meerdere bestellingen plaatsen.</li>
+<li><strong>M:N Relatie:</strong> Een bestelling bevat meerdere producten, en een product kan in meerdere bestellingen voorkomen.</li>
+</ul>
+<p>Relaties worden gemodelleerd door <strong>vreemde sleutels (Foreign Keys)</strong>, die verwijzen naar primaire sleutels in andere tabellen.</p>
+<h2 id="_1-2-stappen-bij-het-ontwerpen-van-een-database" tabindex="-1"><a class="header-anchor" href="#_1-2-stappen-bij-het-ontwerpen-van-een-database"><span>1.2 Stappen bij het ontwerpen van een database</span></a></h2>
+<ol>
+<li><strong>Analyse van informatiebehoefte</strong>: Bepaal welke gegevens moeten worden opgeslagen en hoe deze met elkaar in verband staan.</li>
+<li><strong>Opstellen van een datamodel (bv. ERD-model)</strong>: Ontwerp de entiteiten, attributen en relaties.</li>
+<li><strong>Bepalen van de datastructuur</strong>: Vertaal het model naar tabellen en kolommen.</li>
+<li><strong>Keuze van het DBMS</strong>: Bepaal in welk databasebeheerprogramma de database wordt geïmplementeerd.</li>
+<li><strong>Vertaling naar een dataontwerp (dataschema)</strong>: Definieer de fysieke database-indeling.</li>
+<li><strong>Implementatie en invoer van data</strong>: Zet het ontwerp om in een werkende database en voeg gegevens toe.</li>
+</ol>
 </div></template>
 
 
