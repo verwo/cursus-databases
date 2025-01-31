@@ -25,35 +25,32 @@ Niet elke werknemer volgt een cursus. De afdeling waartoe de kantoorruimte behoo
 
 ## **ER Diagram**
 
-erDiagram
-    CAR ||--o{ NAMED-DRIVER : allows
-    PERSON ||--o{ NAMED-DRIVER : is
-
 ```mermaid
 erDiagram
-    WERKNEMER ||--o{ AFDELING : werkt_in
-    WERKNEMER ||--o{ KANTOORRUIMTE : heeft
-    WERKNEMER }|..|{ CURSUS : volgt
-    AFDELING ||--|{ KANTOORRUIMTE : bevat
+    AFDELING ||--|{ KANTOORRUIMTE : "behoort tot"
+    AFDELING {
+        string AfdelingsNaam
+        float KostenPerJaar
+    }
+    KANTOORRUIMTE ||--|{ WERKNEMER : "werkt in"
+    KANTOORRUIMTE {
+        string KantoorruimteNaam
+    }
+    WERKNEMER }|--o{ CURSUS : volgt
+    WERKNEMER {
+        string FamilieNaam
+        string Voornaam
+        string StraatNr
+        int Postcode
+        string Gemeente
+        datetime GeboorteDatum
+    }
+    CURSUS {
+        string Omschrijving
+    }
+ 
 ```
-```
-+------------+        +-------------+        +---------+
-| Werknemer  |        | Afdeling    |        | Cursus  |
-|------------|        |-------------|        |---------|
-| werknemer_id (PK) | | afdeling_id (PK) | | cursus_id (PK) |
-| naam       |        | naam        |        | naam    |
-| geboortedatum |     | locatie     |        | datum   |
-| adres      |        +-------------+        +---------+
-+------------+
-      |                         |
-      |                         |
-      |                         +----------------+
-      |                                              |
-      +------------------------->+ kantoorruimte |
-                                  | kamer_id (PK) |
-                                  | locatie      |
-                                  +-------------+
-```
+
 
 In dit diagram:
 

@@ -19,33 +19,7 @@
 </ul>
 <p>Niet elke werknemer volgt een cursus. De afdeling waartoe de kantoorruimte behoort, wordt ook vastgelegd. Meerdere werknemers kunnen samen één kantoorruimte delen. De cursussen hebben een cursusnummer en een -naam.</p>
 <h2 id="er-diagram" tabindex="-1"><a class="header-anchor" href="#er-diagram"><span><strong>ER Diagram</strong></span></a></h2>
-<p>erDiagram
-CAR ||--o{ NAMED-DRIVER : allows
-PERSON ||--o{ NAMED-DRIVER : is</p>
-<div class="language-mermaid line-numbers-mode" data-highlighter="prismjs" data-ext="mermaid" data-title="mermaid"><pre v-pre><code><span class="line"><span class="token keyword">erDiagram</span></span>
-<span class="line">    WERKNEMER <span class="token arrow operator">||--o{</span> AFDELING <span class="token operator">:</span> werkt_in</span>
-<span class="line">    WERKNEMER <span class="token arrow operator">||--o{</span> KANTOORRUIMTE <span class="token operator">:</span> heeft</span>
-<span class="line">    WERKNEMER <span class="token arrow operator">}|..|{</span> CURSUS <span class="token operator">:</span> volgt</span>
-<span class="line">    AFDELING <span class="token arrow operator">||--|{</span> KANTOORRUIMTE <span class="token operator">:</span> bevat</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text" data-title="text"><pre v-pre><code><span class="line">+------------+        +-------------+        +---------+</span>
-<span class="line">| Werknemer  |        | Afdeling    |        | Cursus  |</span>
-<span class="line">|------------|        |-------------|        |---------|</span>
-<span class="line">| werknemer_id (PK) | | afdeling_id (PK) | | cursus_id (PK) |</span>
-<span class="line">| naam       |        | naam        |        | naam    |</span>
-<span class="line">| geboortedatum |     | locatie     |        | datum   |</span>
-<span class="line">| adres      |        +-------------+        +---------+</span>
-<span class="line">+------------+</span>
-<span class="line">      |                         |</span>
-<span class="line">      |                         |</span>
-<span class="line">      |                         +----------------+</span>
-<span class="line">      |                                              |</span>
-<span class="line">      +------------------------->+ kantoorruimte |</span>
-<span class="line">                                  | kamer_id (PK) |</span>
-<span class="line">                                  | locatie      |</span>
-<span class="line">                                  +-------------+</span>
-<span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>In dit diagram:</p>
+<Mermaid id="mermaid-73" code="eJxtUcFygjAQvfsVO979gd6Ygo6lggPSnldZMS1JZsJqD+C/NwEUEd8hk+y+vPc2IeMLLAzKGVh4Sz/4XEcraJrFoqkh9KJdHCdJtt7sAniD+Z5OWhsG1jwf36jbo0PFRqgCvGNOpd1UEfbqDsdSI0OoKya1JfOBaNretV3Hfn2I7yAJo2ATJC7AH5lfBqE69zF/EiFExTauOQvJdI/RWQ2qV2uja3jPkjRLrcdFlwU/cSbSS5SiFIPoQ+vLWqoX9ZQNIkfdvA5CMWztSxx0Ts/kFUkixUM9RyYWkmxn776AfOTz40B9/knSWFaHkxE/F3u40Wf/gpiONQ=="></Mermaid><p>In dit diagram:</p>
 <ul>
 <li><strong>Werknemer</strong> is gekoppeld aan <strong>Afdeling</strong> met een <strong>1</strong>**:N**** relatie**.</li>
 <li><strong>Werknemer</strong> kan meerdere <strong>Cursussen</strong> volgen (<strong>M</strong>**:N**** relatie**).</li>
