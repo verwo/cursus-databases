@@ -6,7 +6,7 @@ Je hebt een MySQL-server nodig (bijvoorbeeld XAMPP) en een MySQL-client (Command
 
 Je moet ook de bestanden downloaden van [https://forta.com/wp-content/uploads/books/0672327120/mysql\_scripts.zip](https://forta.com/wp-content/uploads/books/0672327120/mysql_scripts.zip) en uitpakken.
 
-> :bulb: **Tip:** SQL-sleutelwoorden in hoofdletters<br>
+>:bulb: **Tip:** SQL-sleutelwoorden in hoofdletters<br>
 In deze cursus schrijven we alle SQL-code in hoofdletters. Dit is niet verplicht, maar helpt bij het onderscheiden van vaste SQL-code en namen die je kunt wijzigen.
 
 
