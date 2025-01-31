@@ -25,6 +25,10 @@ Niet elke werknemer volgt een cursus. De afdeling waartoe de kantoorruimte behoo
 
 ## **ER Diagram**
 
+erDiagram
+    CAR ||--o{ NAMED-DRIVER : allows
+    PERSON ||--o{ NAMED-DRIVER : is
+
 ```
 erDiagram
     WERKNEMER ||--o{ AFDELING : werkt_in
