@@ -1,6 +1,6 @@
 # Het Entiteit-Relatie Model
 
-## 2.1 Inleiding
+## Inleiding
 
 Een datamodel dat zeer geschikt is voor het ontwerpen van een database is het **Entiteit-Relatie Model (Entity Relationship Model, ER-model)**.
 
@@ -10,7 +10,7 @@ In het Entiteit-Relatie model wordt gebruik gemaakt van:
 - **Attributen**
 - **Relaties (relationships)**
 
-## 2.2 Voorbeeld
+## Voorbeeld
 
 Een bedrijf ontwerpt een informatiesysteem ter ondersteuning van de functie "Personeel". Van de werknemers wordt volgende informatie bijgehouden:
 
@@ -50,7 +50,7 @@ In dit diagram:
 - **Werknemer** kan meerdere **Cursussen** volgen (**M**\*\*:N\*\*\*\* relatie\*\*).
 - **Werknemer** werkt in een **Kantoorruimte** (**1**Een bedrijf ontwerpt een informatiesysteem ter ondersteuning van de functie "Personeel". Van de werknemers wordt volgende informatie bijgehouden:
 
-## 2.3 Entiteiten
+## Entiteiten
 
 Een entiteit is een object (een tastbaar iets), een concept, iets dat je kunt identificeren en waarvan je gegevens wilt bijhouden, zoals een **auto, persoon, magazijn, bankrekening of computer**.
 
@@ -69,7 +69,7 @@ Een entiteit wordt voorgesteld door een **rechthoek**.
 - **Werknemer**
 - **Cursus**
 
-## 2.4 Relaties
+## Relaties
 
 Een **relatie** is een verband tussen twee of meer entiteiten.
 
@@ -87,7 +87,7 @@ Een **relatie** wordt voorgesteld als een **verbindingslijn** tussen de betrokke
 - **Werknemer volgt cursus**
 - **Kamer behoort tot afdeling**
 
-## 2.5 Cardinaliteit
+## Cardinaliteit
 
 De **cardinaliteit** van een relatie geeft aan hoeveel instanties van een entiteit maximaal in relatie kunnen staan met één instantie van de andere entiteit.
 
@@ -102,7 +102,7 @@ De **cardinaliteit** van een relatie geeft aan hoeveel instanties van een entite
 - "Iedere kamer behoort hoogstens tot één afdeling" (**1:1 cardinaliteit** → verticale streep tegen de entiteit)
 - "Iedere werknemer kan veel cursussen volgen" (**1**\*\*:N\*\*\*\* cardinaliteit\*\* → kraaienpoot tegen de entiteit)
 
-## 2.6 Optionaliteit
+## Optionaliteit
 
 De **optionaliteit** van een relatie geeft aan hoeveel instanties van een entiteit **minimaal** in relatie moeten staan met een andere entiteit.
 
@@ -111,7 +111,7 @@ De **optionaliteit** van een relatie geeft aan hoeveel instanties van een entite
 - "Iedere kamer behoort **minstens** tot één afdeling" (**1-optionaliteit** → verticale streep)
 - "Een werknemer **hoeft niet** noodzakelijk een cursus te volgen" (**0-optionaliteit** → cirkeltje)
 
-## 2.7 Attributen
+## Attributen
 
 Een **attribuut** is een eigenschap die met de instanties van een entiteit of een relatie geassocieerd wordt.
 
@@ -134,7 +134,7 @@ Bijvoorbeeld:
 
 - **Leeftijd** kan worden berekend uit **geboortedatum** → daarom wordt alleen **geboortedatum** opgeslagen, niet **leeftijd**.
 
-## 2.8 Relaties met Attributen
+## Relaties met Attributen
 
 De moeilijkste stap bij het opstellen van een **ERD** is het identificeren van **de attributen die bij de relaties horen**.
 
