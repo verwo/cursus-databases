@@ -33,6 +33,7 @@ export default defineUserConfig({
         collapsible: false,
         prefix: '/04-er-diagrams/',
         link: '/04-er-diagrams/',
+        children: ['index.md', 'er-model.md','erd-database.md','normaliseren.md'],
       },
       {
         text: "05-Retreiving data",
