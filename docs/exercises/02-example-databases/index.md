@@ -42,7 +42,19 @@ SHOW DATABASES;
 ```
 
 Dit toont een lijst van beschikbare databases, inclusief systeemtaken zoals `mysql`, `information_schema` en `performance_schema`. Deze databases bevatten interne configuratiegegevens en mogen niet gewijzigd worden.
-
+```sql
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.001 sec)
+```
 ## De database aanmaken en importeren
 ### Database aanmaken
 
@@ -71,7 +83,7 @@ Om te controleren of de database correct is aangemaakt en welke tabellen erin zi
 ```sql
 SHOW TABLES;
 ```
-
+Dit toont informatie over kolommen, types en sleutels.
 ```text
 MariaDB [forta]> SHOW TABLES;
 +-----------------+
@@ -87,7 +99,6 @@ MariaDB [forta]> SHOW TABLES;
 6 rows in set (0.000 sec)
 ```
 
-Dit toont informatie over kolommen, types en sleutels.
 
 ## De database vullen
 
@@ -102,6 +113,7 @@ Controleer vervolgens of de gegevens correct zijn geladen:
 ```sql
 SELECT * FROM products;
 ```
+Als alles correct is geïmporteerd, zie je een lijst met producten.
 
 ```text
 MariaDB [forta]> SELECT * FROM products;
@@ -125,8 +137,6 @@ MariaDB [forta]> SELECT * FROM products;
 +---------+---------+----------------+------------+----------------------------------------------------------------+
 14 rows in set (0.001 sec)
 ```
-
-Als alles correct is geïmporteerd, zie je een lijst met producten.
 
 ## Extra databases
 
