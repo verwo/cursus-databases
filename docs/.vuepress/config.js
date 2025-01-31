@@ -1,10 +1,17 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
+import { mdEnhancePlugin } from "vuepress-plugin-md-enhance";
 
 export default defineUserConfig({
   plugins: [
-    'vuepress-plugin-mermaidjs'
+    mdEnhancePlugin({
+      // your options
+      // Enable flowchart
+      flowchart: true,
+      mermaid: true,
+      tex: true,
+    }),
   ],
   bundler: viteBundler(),
   theme: defaultTheme({
