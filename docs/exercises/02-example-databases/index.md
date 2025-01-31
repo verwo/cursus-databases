@@ -142,18 +142,18 @@ MariaDB [forta]> SELECT * FROM products;
 
 ### Game Reviews database
 
-Download het bestand [gamereviews\_example.zip](/files/gamereviews_example.zip) en importeer `gamereviews_example.sql` met:
+Download het bestand [gamereviews\_example.zip](../../files/gamereviews_example.zip) en importeer `gamereviews_example.sql` met:
 
 ```sql
-SOURCE gamereviews_example.sql;
+SOURCE C:/Users/Username/path/to/gamereviews_example.sql;
 ```
 
 ### SpaceX database
 
-Download het bestand [spacex.zip](/files/spacex.zip) en importeer `spacex.sql` met:
+Download het bestand [spacex.zip](../../files/spacex.zip) en importeer `spacex.sql` met:
 
 ```sql
-SOURCE spacex.sql;
+SOURCE C:/Users/Username/path/to/spacex.sql;
 ```
 
 ### Grotere testdatabase
@@ -163,7 +163,7 @@ Sommige voorbeelden gebruiken een grotere testdatabase met werknemersgegevens. D
 Navigeer naar de map waarin je het bestand hebt opgeslagen en start de MySQL-client. Gebruik vervolgens:
 
 ```sql
-SOURCE employees.sql;
+SOURCE C:/Users/Username/path/to/employees.sql;
 ```
 
 Dit proces duurt langer omdat het een grotere database betreft. Je kunt een tweede client openen om verder te werken terwijl deze wordt geïmporteerd.
