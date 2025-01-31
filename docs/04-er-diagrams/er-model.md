@@ -27,6 +27,12 @@ Niet elke werknemer volgt een cursus. De afdeling waartoe de kantoorruimte behoo
 
 ```
 erDiagram
+    WERKNEMER ||--o{ AFDELING : werkt_in
+    WERKNEMER ||--o{ KANTOORRUIMTE : heeft
+    WERKNEMER }|..|{ CURSUS : volgt
+    AFDELING ||--|{ KANTOORRUIMTE : bevat
+```
+```
 +------------+        +-------------+        +---------+
 | Werknemer  |        | Afdeling    |        | Cursus  |
 |------------|        |-------------|        |---------|
