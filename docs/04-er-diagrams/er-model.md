@@ -25,7 +25,8 @@ Niet elke werknemer volgt een cursus. De afdeling waartoe de kantoorruimte behoo
 
 ## **ER Diagram**
 
-```text
+```
+erDiagram
 +------------+        +-------------+        +---------+
 | Werknemer  |        | Afdeling    |        | Cursus  |
 |------------|        |-------------|        |---------|
