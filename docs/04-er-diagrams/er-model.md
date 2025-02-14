@@ -62,10 +62,20 @@ In dit diagram:
 
 Een entiteit is een object (een tastbaar iets), een concept, iets dat je kunt identificeren en waarvan je gegevens wilt bijhouden, zoals een **auto, persoon, magazijn, bankrekening of computer**.
 
+```mermaid
+erDiagram
+    BANKREKENING {
+        string Rekeningnummer
+        float Saldo
+    }
+
+```
+
 Een entiteit bestaat uit:
 
 - Een **unieke naam**
 - Een **lijst van attributen**
+
 
 **Voorstelling - Voorbeeld**
 Een entiteit wordt voorgesteld door een **rechthoek**.
@@ -93,63 +103,165 @@ Een **relatie** wordt voorgesteld als een **verbindingslijn** tussen de betrokke
 **Leesrichting:**
 
 - **Werknemer volgt cursus**
-- **Kamer behoort tot afdeling**
+- **Vergaderzaal behoort tot afdeling**
 
-## Cardinaliteit
+```mermaid
+flowchart
+  werknemer -- volgt --- cursus
+  vergaderzaal -- behoort tot --- afdeling
 
-De **cardinaliteit** van een relatie geeft aan hoeveel instanties van een entiteit maximaal in relatie kunnen staan met één instantie van de andere entiteit.
 
-**Voorbeelden van cardinaliteit:**
+```
+## Cardinaliteit en Optionaliteit in Databases
 
-- **1:1** → Eén-op-één
-- **1**\*\*:N\*\* → Eén-op-veel
-- **M**\*\*:N\*\* → Veel-op-veel
+Cardinaliteit en optionaliteit bepalen hoe entiteiten binnen een relationele database met elkaar verbonden zijn. Cardinaliteit geeft aan **hoeveel** instanties van één entiteit gerelateerd kunnen zijn aan een andere entiteit. Optionaliteit geeft aan of een relatie **verplicht** of **optioneel** is.
 
-## Voorstelling - Voorbeeld
+### Cardinaliteitstypes
 
-- "Iedere kamer behoort hoogstens tot één afdeling" (**1:1 cardinaliteit** → verticale streep tegen de entiteit)
-- "Iedere werknemer kan veel cursussen volgen" (**1**\*\*:N\*\*\*\* cardinaliteit\*\* → kraaienpoot tegen de entiteit)
+#### Één-op-één (1:1)
+Bij een **één-op-één-relatie** is één instantie van entiteit A gekoppeld aan maximaal één instantie van entiteit B.
 
-## Optionaliteit
+**Voorbeeld:**
+- Een persoon heeft precies **één** paspoort.
+- Een paspoort behoort precies **tot één** persoon.
 
-De **optionaliteit** van een relatie geeft aan hoeveel instanties van een entiteit **minimaal** in relatie moeten staan met een andere entiteit.
+**Mermaid ER Diagram:**
+```mermaid
+erDiagram
+    Persoon ||--|| Paspoort : "1:1"
+```
 
-**Voorbeelden van optionaliteit:**
+#### Één-op-veel (1:N)
+Bij een **één-op-veel-relatie** kan één instantie van entiteit A gerelateerd zijn aan **meerdere** instanties van entiteit B, maar een instantie van B hoort bij slechts **één** instantie van A.
 
-- "Iedere kamer behoort **minstens** tot één afdeling" (**1-optionaliteit** → verticale streep)
-- "Een werknemer **hoeft niet** noodzakelijk een cursus te volgen" (**0-optionaliteit** → cirkeltje)
+**Voorbeeld:**
+- Een auteur kan **meerdere** boeken schrijven.
+- Een boek heeft slechts **één** auteur.
+
+**Mermaid ER Diagram:**
+```mermaid
+erDiagram
+    Auteur ||--o{ Boek : "1:N"
+```
+
+#### Veel-op-veel (M:N)
+Bij een **veel-op-veel-relatie** kan een instantie van entiteit A gekoppeld zijn aan **meerdere** instanties van entiteit B, en vice versa.
+
+**Voorbeeld:**
+- Een student kan **meerdere** cursussen volgen.
+- Een cursus kan **meerdere** studenten hebben.
+
+**Mermaid ER Diagram:**
+```mermaid
+erDiagram
+    Student }o--o{ Cursus : "M:N"
+```
+
+### Optionaliteit
+Optionaliteit bepaalt of een relatie verplicht of optioneel is. Dit wordt vaak aangegeven met een **o** (optioneel) of een **|** (verplicht).
+
+#### Verplichte relaties
+Een verplichte relatie betekent dat een instantie van een entiteit **altijd** een gekoppelde instantie in een andere entiteit moet hebben.
+
+**Voorbeeld:**
+- Een paspoort moet **altijd** aan een persoon gekoppeld zijn (**1:1 verplicht**).
+
+**Diagram:**
+```mermaid
+erDiagram
+    Persoon ||--|| Paspoort : "1:1 verplicht"
+```
+
+#### Optionele relaties
+Een optionele relatie betekent dat een instantie van een entiteit **kan** worden gekoppeld aan een andere entiteit, maar dit is niet vereist.
+
+**Voorbeeld:**
+- Een auteur kan meerdere boeken hebben, maar een auteur **kan ook geen boeken hebben geschreven** (**1:N optioneel**).
+
+**Diagram:**
+```mermaid
+erDiagram
+    Auteur |o--o{ Boek : "1:N optioneel"
+```
 
 ## Attributen
-
 Een **attribuut** is een eigenschap die met de instanties van een entiteit of een relatie geassocieerd wordt.
 
 **Attributen kunnen zijn:**
 
 - **Voornaam, familienaam, geslacht** (bijvoorbeeld voor een **werknemer**)
+
+
+```mermaid
+erDiagram
+    Werknemer {
+        string Voornaam
+        string Familienaam
+        string Geslacht
+    }
+```
+
 - **Cursusnummer, cursusnaam** (bijvoorbeeld voor een **cursus**)
 
-## **Samengestelde Attributen**
 
+```mermaid
+erDiagram
+    Cursus {
+        int Cursusnummer
+        string Cursusnaam
+    }
+```
+
+### Samengestelde Attributen
 Een **naam** kan bijvoorbeeld opgesplitst worden in **Voornaam** en **Familienaam**.
 
 In sommige gevallen heeft het **geen zin** om samengestelde attributen op te splitsen (zoals **Straat + Huisnummer**), maar in andere gevallen is dit wel nuttig.
 
-## **Procesgegevens**
+#### Voorbeeld:
+- Een adres kan bestaan uit **straatnaam, huisnummer en postcode**, wat soms als **samengesteld attribuut** wordt gezien.
 
+```mermaid
+erDiagram
+    Adres {
+        string Straatnaam
+        int Huisnummer
+        string Postcode
+    }
+```
+
+- Een volledige naam wordt vaak opgesplitst in **voornaam en familienaam**.
+
+## Procesgegevens
 Een **procesgegeven** of **berekend gegeven** is een attribuut waarvan de waarde bepaald wordt door andere attributen.
 
-Bijvoorbeeld:
-
+### Voorbeeld:
 - **Leeftijd** kan worden berekend uit **geboortedatum** → daarom wordt alleen **geboortedatum** opgeslagen, niet **leeftijd**.
 
-## Relaties met Attributen
 
+```mermaid
+erDiagram
+    Persoon {
+        date Geboortedatum
+    }
+```
+
+- **Totale prijs** van een bestelling wordt berekend op basis van **aantal producten en prijs per product**.
+
+## Relaties met Attributen
 De moeilijkste stap bij het opstellen van een **ERD** is het identificeren van **de attributen die bij de relaties horen**.
 
-Bijvoorbeeld:
-
+### Voorbeeld:
 - "Van elke werknemer wordt bijgehouden **welke cursus hij wanneer volgde**"
 - Hier hoort **"jaartal"** bij de relatie **"volgt"** en **niet** bij de entiteiten **"Werknemer"** of **"Cursus"**.
+
+
+```mermaid
+erDiagram
+    Werknemer }|--o{ Cursus : "volgt"
+    Volgt {
+        jaartal INT
+    }
+```
 
 Met dit model kunnen **relationele databases** correct gestructureerd en beheerd worden.
 
