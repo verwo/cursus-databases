@@ -8,7 +8,7 @@ title: Software
 
 XAMPP is een softwarepakket dat verschillende tools voor webontwikkeling bundelt in één applicatie.
 
-XAMPP staat voor:
+XAMPP staat voor :
 
 * **X**: Werkt op elk besturingssysteem (Windows, Linux en macOS)
 * **A**: Apache HTTP-server
